@@ -1,0 +1,2 @@
+module ExhibitorcategoriesHelper
+end

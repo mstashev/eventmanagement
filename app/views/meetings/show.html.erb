@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<div id="leftcolumn">
+<p>
+  <b>Name:</b>
+  <%= @meeting.name %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @meeting.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @meeting.end_date %>
+</p>
+
+<%= link_to 'Edit', edit_meeting_path(@meeting) %> |
+<%= link_to 'Back', meetings_path %>
+</div>
+<div id="rightcolumnhalf">
+  <b>Venue Info</b><br />
+    <%= link_to @meeting.venue.name, venue_path(@meeting.venue.id) %>
+</div><br />
+<div id="rightcolumnhalf">
+  <b>Sponsors</b><br />
+  <% @meeting.sponsors.each do |s| %>
+    <%= link_to s.name, sponsor_path(s.id) %><br />
+  <% end %>
+</div>

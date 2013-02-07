@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+<div id="leftcolumn">
+  <p>
+    <b>Name:</b>
+    <%= @venue.name %>
+  </p>
+
+  <p>
+    <b>Address:</b>
+    <%= @venue.address %>
+  </p>
+
+  <p>
+    <b>City:</b>
+    <%= @venue.city %>
+  </p>
+
+  <p>
+    <b>State:</b>
+    <%= @venue.state %>
+  </p>
+
+  <p>
+    <b>Zip:</b>
+    <%= @venue.zip %>
+  </p>
+
+
+  <%= link_to 'Edit', edit_venue_path(@venue) %> |
+  <%= link_to 'Back', venues_path %>
+</div>
+<div id="rightcolumnfull">
+  <b>Meetings Scheduled:</b><br />
+  <% @venue.meetings.each do |m| %>
+    <%= link_to m.name, meeting_path(m.id) %><br />
+  <% end %>
+</div>

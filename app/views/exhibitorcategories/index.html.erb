@@ -1,0 +1,25 @@
+<div id="leftcolumnall">
+  <h1>Listing Exhibitor Categories</h1>
+
+  <table id="table">
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @exhibitorcategories.each do |exhibitorcategory| %>
+    <tr>
+      <td><%= exhibitorcategory.name %></td>
+      <td><%= link_to 'Show', exhibitorcategory %></td>
+      <td><%= link_to 'Edit', edit_exhibitorcategory_path(exhibitorcategory) %></td>
+      <td><%= link_to 'Destroy', exhibitorcategory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <br />
+
+  <%= link_to 'New Exhibitorcategory', new_exhibitorcategory_path %>
+</div>

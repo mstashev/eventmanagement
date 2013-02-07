@@ -1,0 +1,33 @@
+<%= form_for(@exhibitor) do |f| %>
+  <% if @exhibitor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@exhibitor.errors.count, "error") %> prohibited this exhibitor from being saved:</h2>
+
+      <ul>
+      <% @exhibitor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :exhibitor_category_name %><br />
+    <%= f.select :exhibitorcategory_id, Exhibitorcategory.all.map{ |ec| [ec.name, ec.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :is_a_sponsor %><br />
+    <%= f.collection_select :sponsor_id, Sponsor.all, 'id', 'name', :prompt => "I am not a sponsor" %><br />
+    <p>Not a sponsor yet? Click <%= link_to "here", new_sponsor_path %> to sign up.</p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

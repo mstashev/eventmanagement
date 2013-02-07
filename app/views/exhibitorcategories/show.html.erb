@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+<div id="leftcolumn">
+<p>
+  <b>Name:</b>
+  <%= @exhibitorcategory.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_exhibitorcategory_path(@exhibitorcategory) %> |
+<%= link_to 'Back', exhibitorcategories_path %>
+</div>
+<div id="rightcolumnfull" >
+<b>Show Exhibitors</b><br />
+  <% @exhibitorcategory.exhibitors.each do |ec| %>
+    <%= ec.name %>
+  <% end %>
+</div>
